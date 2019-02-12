@@ -1,0 +1,136 @@
+.map{
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  margin-left: -0.28%;
+  margin-top: -0.34%;
+  z-index:-1
+}
+
+#recentsHeader{
+  position: absolute;
+  width: 35%;
+  bottom:20%;
+  left: 2%;
+  padding: 1rem;
+  text-align: left;
+  font-size: 130%;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+#recentsBody{
+  position: absolute;
+  width: 35%;
+  height: 15%;
+  bottom:5%;
+  left: 2%;
+  padding: 1rem;
+  background-color:rgba(128,128,128,0.25);
+  opacity: 1;
+  text-align: center;
+  z-index: 1;
+  border-radius: 15px;
+  border: 1px solid black;
+}
+
+#scheduledHeader{
+  position: absolute;
+  width: 35%;
+  bottom:20%;
+  right: 2%;
+  padding: 1rem;
+  text-align: left;
+  font-size: 130%;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+#scheduledBody {
+  position: absolute;
+  width: 35%;
+  height: 15%;
+  bottom:5%;
+  right: 2%;
+  padding: 1rem;
+  background-color:rgba(128,128,128,0.25);
+  opacity: 1;
+  text-align: center;
+  z-index: 1;
+  border-radius: 15px;
+  float: left;
+  border: 1px solid black;
+}
+
+.tableEventos{
+  color: black !important;
+  z-index: 1;
+  position: absolute;
+  background:none;
+  font-family: Arial;
+  width: 100%;
+  left:0
+}
+
+.tableEventos th{
+  font-weight: bold;
+  text-align: center;
+}
+
+a{
+  color:black !important;
+}
+
+.ol-popup {
+  background-color: white;
+  z-index: 1;
+  display: none;
+  min-width: 500px;
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 65px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+}
+
+.ol-popup::after {
+  margin-top: -67px;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+#popup-content{
+  font-size: 145%;
+  font-family: Arial;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+
+#marker {
+  width: 500px;
+  height: 500px;
+  background-position: center;
+}
+
+#idBtnSelect{
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  z-index: 1;
+  height: 130px;
+  width: 315px;
+  background: rgba(150, 52, 44, 0.72);
+  border-radius: 10px;
+  border: solid 2px darkblue;
+}
+

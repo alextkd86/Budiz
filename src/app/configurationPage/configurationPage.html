@@ -1,0 +1,111 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" id="header">
+      E-Wall Configuración
+</nav>
+<div id="idContainer">
+  <div id="idDivCapas">
+    <div id="idDivCapasHeader">Capas</div>
+    <div id="idDivCapasContent">
+      <div *ngFor="let capa of listCapas">
+        <label>
+          <input type="checkbox" [(ngModel)]="capa.activa"/>
+          {{capa.descripcion}}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div id="idDivTable">
+    <div id="idDivTableHeader">Parámetros</div>
+    <div id="idDivTableContent">
+      <table id="tablaConfiguracion" class="table table-hover table-striped" [mfData]="listTipoEventoConfiguracion" #mf="mfDataTable" [mfRowsOnPage]="13">
+        <thead>
+        <tr>
+          <th class="center">
+            <mfDefaultSorter by="tipoEventoDto.desc">Tipo Evento</mfDefaultSorter>
+          </th>
+          <th class="center">
+            <mfDefaultSorter by="preaviso.valor">Preaviso (min)</mfDefaultSorter>
+          </th>
+          <th class="center">
+            <mfDefaultSorter by="duracionAlerta.valor">Duración Alerta (min)</mfDefaultSorter>
+          </th>
+          <th class="center">
+            <mfDefaultSorter by="prioridad">Prioridad</mfDefaultSorter>
+          </th>
+          <th class="center">
+            <mfDefaultSorter by="mostrar.valor">Mostrar</mfDefaultSorter>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of mf.data">
+          <th scope="row">{{item.tipoEventoDto.desc}}</th>
+          <td><input name="preaviso" class="form-control" type="number" [(ngModel)]="item.preaviso.valor" [disabled]="item.planificado.valor === 'false'" /></td>
+          <td><input name="duracionAlerta" class="form-control" type="number" [(ngModel)]="item.duracionAlerta.valor" /></td>
+          <td>
+          <select name="prioridad" class="form-control" [(ngModel)]="item.tipoEventoDto.prioridad.id" #sector="ngModel">
+            <option [ngValue]="1">Baja</option>
+            <option [ngValue]="2">Media</option>
+            <option [ngValue]="3">Alta</option>
+            <option [ngValue]="4">Urgente</option>
+          </select>
+          </td>
+          <td class="center">
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="item.mostrar.valor" />
+              <span class="slider round"></span>
+            </label>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-end" id="botonera">
+  <div class="col-md-offset-8 col-md-2">
+    <button type="button" class="btn btn-success btn-block" (click)="actualizarParametros()" >Actualizar</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-danger btn-block" (click)="revertCambios()" >Revertir Cambios</button>
+  </div>
+</div>
+<br/>
+<modal #modalSuccess>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">Configuración actualizada</h4>
+  </modal-header>
+  <modal-body>
+    <div class="alert alert-success">La configuración se ha actualizado correctamente</div>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modalSuccess.close()">Cerrar</button>
+  </modal-footer>
+</modal>
+
+
+<modal #modalErrorComprobacion>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">Existen Errores en la Configuración</h4>
+  </modal-header>
+  <modal-body>
+    <div class="alert">Se han encontrado los siguientes errores en la configuración:</div>
+    <div class="alert alert-danger" *ngFor="let error of errores">{{error}}</div>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modalErrorComprobacion.close()">Cerrar</button>
+  </modal-footer>
+</modal>
+
+<modal #modalErrorServidor>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">Error al Actualizar la Configuración</h4>
+  </modal-header>
+  <modal-body>
+    <div class="alert">Se han producido los siguientes errores:</div>
+    <div class="alert alert-danger" *ngFor="let error of errores">{{error}}</div>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modalErrorServidor.close()">Cerrar</button>
+  </modal-footer>
+</modal>

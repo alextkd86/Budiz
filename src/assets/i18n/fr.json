@@ -1,0 +1,7 @@
+{
+	"CAPAS": {
+		"trafico": "Couche de circulation", 
+		"precipitaciones": "Couche de Pluie", 
+		"temperaturas": "Couche de température"
+	}
+}

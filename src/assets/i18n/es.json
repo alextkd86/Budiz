@@ -1,0 +1,7 @@
+{
+	"CAPAS": {
+		"trafico": "Capa de tráfico", 
+		"precipitaciones": "Capa de precipitaciones", 
+		"temperaturas": "Capa de temperaturas"
+	}
+}

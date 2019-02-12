@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+-------------------------------------------------------------------------------------------------
+--------------------------------Content Principal index.html-------------------------------------
+-------------------------------------------------------------------------------------------------
+*/
+.centrar{
+  position: absolute;
+  /*nos posicionamos en el centro del navegador*/
+  top:50%;
+  left:50%;
+  /*determinamos una anchura*/
+  width:400px;
+  /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+  margin-left:-200px;
+  /*determinamos una altura*/
+  height:300px;
+  /*indicamos que el margen superior, es la mitad de la altura*/
+  margin-top:-150px;
+  /*border:1px solid #808080;*/
+  border:none;
+  padding:5px;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Evita que las tablas de eventos tengan el texto de cabecera en azul*/
+.tableEventos a{
+  color:rgba(90,90,90,0.8);
+}

@@ -1,0 +1,7 @@
+{
+	"CAPAS": {
+		"trafico": "Traffic Layer", 
+		"precipitaciones": "Rainfall Layer", 
+		"temperaturas": "Temperature Layer"
+	}
+}

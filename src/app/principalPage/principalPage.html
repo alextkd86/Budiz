@@ -1,0 +1,46 @@
+<div id="map" class="map">
+  <div id="popupCongestion" style="position: absolute;width: 100%;margin-top: 2%;margin-left: 50%;z-index: 1;color: darkblue;font-size: initial;font-weight: bold;padding-right: 55%;border-radius: 15px; overflow: auto;" [hidden]="listAtascosAux !== undefined && listAtascosAux.resourceSets!== null && listAtascosAux.resourceSets[0].estimatedTotal!==0">
+  <div>
+      <label style="background:rgba(110, 141, 209,0.8);border-radius: 15px; width:100%; padding-left:5%;">Avisos sobre la congestión del tráfico</label>
+      <ul style="background:rgba(209, 149, 94,0.8);border-radius: 15px;">
+        <li *ngFor="let atasco of listAtascos; let i = index">
+          {{i+1}} - {{ atasco.description}}
+        </li>
+    </ul>
+  </div>
+</div>
+</div>
+<div id="popup" class="ol-popup">
+  <div id="popup-content"></div>
+</div>
+<div id="marker" style="display: none" title="Marker"></div>
+<div id="idBtnSelect">
+  <div class="container" style="width:350px; margin-top:5%;">
+    <div class="row">
+      <div class="col-sm-8">
+        <label style="background:rgba(128, 217, 125, 0.81);border-radius: 15px; width:100%; padding-left:2%; padding-right:2%;">{{ 'CAPAS.trafico' | translate }}</label>
+      </div>
+      <div class="col-sm-4">
+        <ui-switch size="medium" color="rgba(128, 217, 125, 0.81)" switchColor="rgba(128, 217, 125, 0.81)" (change)="updateCapaTrafico($event)"></ui-switch>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <label style="background:rgba(125, 186, 217, 0.81);border-radius: 15px; width:100%; padding-left:2%; padding-right:2%;">{{ 'CAPAS.precipitaciones' | translate }}</label>
+      </div>
+      <div class="col-sm-4">
+        <ui-switch size="medium" color="rgba(125, 186, 217, 0.81)" switchColor="rgba(125, 186, 217, 0.81)" (change)="updateCapaPrecipitaciones($event)"></ui-switch>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <label style="background:rgba(217, 182, 125, 0.81);border-radius: 15px; width:100%; padding-left:2%; padding-right:2%;">{{ 'CAPAS.temperaturas' | translate }}</label>
+      </div>
+      <div class="col-sm-4">
+        <ui-switch size="medium" color="rgba(217, 182, 125, 0.81)" switchColor="rgba(217, 182, 125, 0.81)" (change)="updateCapaTemperaturas($event)"></ui-switch>
+      </div>
+    </div>
+  </div>
+</div>
